@@ -15,6 +15,7 @@ h1 {
 
 .container p {
     text-align: center;
+    margin-top: 40px;
 }
 
 
@@ -50,6 +51,14 @@ h1 {
     animation: colorChange 2s linear infinite; 
 }
 
+
+footer {
+    margin-top: 40px;
+    text-align: center;
+    background-color: rgb(233, 233, 233);
+    padding: 30px 0;
+}
+
 @keyframes colorChange {
     0% {
         border-color: yellow; 
@@ -82,20 +91,24 @@ h1 {
 
 /* Móviles */
 @media (max-width: 600px) {
+    .img-zoom-container img:hover {
+        cursor: zoom-in;
+    }
+
     .img-zoom-container {
         flex-direction: column; /* Apila las imágenes verticalmente en móviles */
     }
     
     .red-border {
         position: absolute;
-        bottom: 6px;
-        left: 4px;
-        width: 140px;  
-        height: 60px; 
-        border: 3px solid yellow; 
+        bottom: 7px;
+        left: 5px;
+        width: 122px;
+        height: 62px;
+        border: 1px solid yellow; 
         pointer-events: none; 
         animation: colorChange 2s linear infinite; 
-    }
+        }
     
     .img-zoom-result {
         border: 1px solid #d4d4d4;
@@ -110,6 +123,10 @@ h1 {
 
 /* Tabletas */
 @media (min-width: 601px) and (max-width: 1024px) {
+    .img-zoom-container img:hover {
+        cursor: zoom-in;
+    }
+    
     .img-zoom-container {
         flex-direction: row; /* Mantener el diseño en fila */
         justify-content: center; /* Centrar elementos */
@@ -127,6 +144,10 @@ h1 {
 
 /* Ordenadores */
 @media (min-width: 1025px) {
+    .img-zoom-container img:hover {
+        cursor: zoom-in;
+    }
+    
     .red-border {
         width: 120px; /* Tamaño original */
         height: 60px; 
