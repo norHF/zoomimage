@@ -1,6 +1,8 @@
 * {
     box-sizing: border-box;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
 h1 {
@@ -85,8 +87,14 @@ h1 {
     }
     
     .red-border {
-        width: 80px; /* Ajuste del tamaño del borde */
-        height: 40px; 
+        position: absolute;
+        bottom: 6px;
+        left: 4px;
+        width: 140px;  
+        height: 60px; 
+        border: 3px solid yellow; 
+        pointer-events: none; 
+        animation: colorChange 2s linear infinite; 
     }
     
     .img-zoom-result {
