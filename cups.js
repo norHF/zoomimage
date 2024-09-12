@@ -1,8 +1,9 @@
 function imageZoom(imgID, resultID) {
-  var img, lens, result, cx, cy;
+  var img, lens, result, pointer, cx, cy;
   img = document.getElementById(imgID);
   result = document.getElementById(resultID);
-  
+  pointer = document.getElementById("pointer"); // Obtén el puntero
+
   // Crear lente
   lens = document.createElement("DIV");
   lens.setAttribute("class", "img-zoom-lens");
@@ -14,24 +15,23 @@ function imageZoom(imgID, resultID) {
 
   result.style.width = resultWidth + "px";
   result.style.height = resultHeight + "px";
-  
-  // Calcular la relación entre el DIV de resultado y la lente
+
   cx = resultWidth / lens.offsetWidth;
   cy = resultHeight / lens.offsetHeight;
 
   result.style.backgroundImage = "url('" + img.src + "')";
   result.style.backgroundSize = (img.width * cx) + "px " + (img.height * cy) + "px";
 
-  // Inicializar la posición de la lente en la parte inferior izquierda
-  const borderLeftOffset = 65; // Ajuste a la izquierda en píxeles
-  const borderBottomOffset = 20; // Ajuste hacia arriba en píxeles
+  // Inicializar la posición de la lente y el puntero
+  const borderLeftOffset = 65; 
+  const borderBottomOffset = 20; 
   
-  const initialX = 4 + borderLeftOffset; // Posición horizontal inicial
-  const initialY = img.height - lens.offsetHeight - borderBottomOffset; // Posición vertical inicial
+  const initialX = 4 + borderLeftOffset; 
+  const initialY = img.height - lens.offsetHeight - borderBottomOffset;
   
   lens.style.left = initialX + "px";
   lens.style.top = initialY + "px";
-  
+
   // Mover el resultado de acuerdo a la posición inicial
   result.style.backgroundPosition = "-" + (initialX * cx) + "px -" + (initialY * cy) + "px";
 
@@ -40,6 +40,18 @@ function imageZoom(imgID, resultID) {
   img.addEventListener("mousemove", moveLens);
   lens.addEventListener("touchmove", moveLens);
   img.addEventListener("touchmove", moveLens);
+  
+  // Evento para mostrar y mover puntero
+  lens.addEventListener("mousemove", showPointer);
+  lens.addEventListener("touchmove", showPointer);
+
+  function showPointer(e) {
+    // Mostrar puntero
+    pointer.style.display = "block";
+    var pos = getCursorPos(e);
+    pointer.style.left = (pos.x - pointer.offsetWidth / 2) + "px";
+    pointer.style.top = (pos.y - pointer.offsetHeight / 2) + "px";
+  }
 
   function moveLens(e) {
     var pos, x, y;
@@ -56,7 +68,6 @@ function imageZoom(imgID, resultID) {
 
     lens.style.left = x + "px";
     lens.style.top = y + "px";
-
     result.style.backgroundPosition = "-" + (x * cx) + "px -" + (y * cy) + "px";
   }
 
