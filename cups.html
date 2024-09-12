@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Código CUPS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Encuentra de CUPS</h1>
+    <div class="container">
+        <p>Coloca el puntero sobre el recuadro pequeño de la imagen, te indica donde puedes encontrar el CUPS.</p>
+        <div class="img-zoom-container">
+            <div class="imageContenedor">
+                <img id="myimage" src="CUPS1.jpg" width="250px" height="350px" alt="FACTURA">
+                <div class="red-border"></div>
+            </div>
+            <div id="myresult" class="img-zoom-result"></div>
+        </div>
+    </div>
+    <script src="cups.js"></script>
+    <script>imageZoom("myimage", "myresult");</script>
+</body>
+</html>
