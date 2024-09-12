@@ -70,6 +70,8 @@ h1 {
 
 .img-zoom-result {
     border: 1px solid #d4d4d4;
+    width: 300px; /* Ancho por defecto */
+    height: 300px; /* Altura por defecto */
     background-repeat: no-repeat;
     margin-top: auto; /* Esto empuja el elemento hacia abajo */
 }
@@ -88,7 +90,13 @@ h1 {
     }
     
     .img-zoom-result {
-        padding: 0 50px; /* Ajuste del padding para móviles */
+        border: 1px solid #d4d4d4;
+        width: 100%; /* Usar el 100% del ancho contenedor */
+        height: auto; /* Ajustar la altura automáticamente para mantener la proporción */
+        padding: 10px; /* Ajuste del padding para móviles */
+        background-repeat: no-repeat;
+        margin-top: 20px; /* Margen superior para separar de otros elementos */
+        max-width: 300px; /* Máximo ancho para mantener un tamaño pequeño en pantallas grandes */
     }
 }
 
